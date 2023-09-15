@@ -19,3 +19,21 @@ Run
 ```bash
 docker-compose up --build
 ```
+
+### API Endpoints
+
+```bash
+GET localhost:8090/diaries
+```
+
+```bash
+GET localhost:8090/diaries/{id}
+```
+
+```bash
+POST localhost:8090/diaries
+```
+
+```bash
+DELETE localhost:8090/diaries/{id}
+```
