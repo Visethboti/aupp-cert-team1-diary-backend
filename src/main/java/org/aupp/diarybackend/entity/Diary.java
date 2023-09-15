@@ -10,6 +10,7 @@ import lombok.*;
 @ToString
 public class Diary {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "diaryID")
     @Setter
     @Getter
