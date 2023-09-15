@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/diaries")
+@RequestMapping("/v1/diaries")
 public class DiaryController {
     @Autowired
     DiaryService diaryService;
