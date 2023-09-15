@@ -3,6 +3,8 @@ package org.aupp.diarybackend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "Diaries")
 @AllArgsConstructor
@@ -35,5 +37,5 @@ public class Diary {
     @Column(name = "createdDate")
     @Setter
     @Getter
-    private String createdDate;
+    private Date createdDate;
 }

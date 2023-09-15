@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/v1/diaries")
 public class DiaryController {
@@ -28,6 +30,7 @@ public class DiaryController {
 
     @PostMapping("")
     public ResponseEntity saveDiary(@RequestBody Diary diary){
+        diary.setCreatedDate(new Date());
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.saveDiary(diary));
     }
 
