@@ -19,18 +19,18 @@ public class DiaryController {
     DiaryService diaryService;
 
     @GetMapping("")
-    @CrossOrigin("")
+    @CrossOrigin("*")
     public ResponseEntity get(){
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries());
     }
 
     @GetMapping("/{diaryID}")
-    @CrossOrigin("")
+    @CrossOrigin("*")
     public ResponseEntity getDiary(@PathVariable int diaryID){
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiary(diaryID));
     }
 
-    @PostMapping("")
+    @PostMapping("*")
     @CrossOrigin("")
     public ResponseEntity saveDiary(@RequestBody Diary diary){
         diary.setCreatedDate(new Date());
@@ -38,7 +38,7 @@ public class DiaryController {
     }
 
     @DeleteMapping("/{diaryID}")
-    @CrossOrigin("")
+    @CrossOrigin("*")
     public ResponseEntity deleteDiary(@PathVariable int diaryID) {
         try {
             diaryService.deleteDiary(diaryID);
