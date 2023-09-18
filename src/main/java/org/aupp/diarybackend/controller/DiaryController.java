@@ -14,7 +14,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/v1/diaries")
-@CrossOrigin("")
+@CrossOrigin("*")
 public class DiaryController {
     @Autowired
     DiaryService diaryService;
