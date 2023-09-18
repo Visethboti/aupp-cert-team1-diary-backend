@@ -38,6 +38,7 @@ public class DiaryController {
     }
 
     @DeleteMapping("/{diaryID}")
+    @CrossOrigin
     public ResponseEntity deleteDiary(@PathVariable int diaryID) {
         try {
             diaryService.deleteDiary(diaryID);
