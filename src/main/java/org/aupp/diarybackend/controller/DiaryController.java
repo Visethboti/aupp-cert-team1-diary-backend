@@ -19,16 +19,19 @@ public class DiaryController {
     DiaryService diaryService;
 
     @GetMapping("")
+    @CrossOrigin
     public ResponseEntity get(){
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries());
     }
 
     @GetMapping("/{diaryID}")
+    @CrossOrigin
     public ResponseEntity getDiary(@PathVariable int diaryID){
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiary(diaryID));
     }
 
     @PostMapping("")
+    @CrossOrigin
     public ResponseEntity saveDiary(@RequestBody Diary diary){
         diary.setCreatedDate(new Date());
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.saveDiary(diary));
