@@ -18,22 +18,26 @@ public class DiaryController {
 
     @GetMapping("")
     public ResponseEntity get(){
+        System.out.println("Called GET /v1/diaries");
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries());
     }
 
     @GetMapping("/{diaryID}")
     public ResponseEntity getDiary(@PathVariable int diaryID){
+        System.out.println("Called GET /v1/diaries/{diaryID}");
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiary(diaryID));
     }
 
     @PostMapping("")
     public ResponseEntity saveDiary(@RequestBody Diary diary){
+        System.out.println("Called POST /v1/diaries");
         diary.setCreatedDate(new Date());
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.saveDiary(diary));
     }
 
     @DeleteMapping("/{diaryID}")
     public ResponseEntity deleteDiary(@PathVariable int diaryID) {
+        System.out.println("Called DELETE /v1/diaries/{diaryID}");
         try {
             diaryService.deleteDiary(diaryID);
         } catch (Exception e) {
