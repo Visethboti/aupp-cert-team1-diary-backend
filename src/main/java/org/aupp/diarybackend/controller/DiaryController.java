@@ -14,31 +14,28 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/v1/diaries")
+@CrossOrigin("")
 public class DiaryController {
     @Autowired
     DiaryService diaryService;
 
     @GetMapping("")
-    @CrossOrigin("*")
     public ResponseEntity get(){
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiaries());
     }
 
     @GetMapping("/{diaryID}")
-    @CrossOrigin("*")
     public ResponseEntity getDiary(@PathVariable int diaryID){
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiary(diaryID));
     }
 
     @PostMapping("*")
-    @CrossOrigin("")
     public ResponseEntity saveDiary(@RequestBody Diary diary){
         diary.setCreatedDate(new Date());
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.saveDiary(diary));
     }
 
     @DeleteMapping("/{diaryID}")
-    @CrossOrigin("*")
     public ResponseEntity deleteDiary(@PathVariable int diaryID) {
         try {
             diaryService.deleteDiary(diaryID);
