@@ -26,7 +26,7 @@ public class DiaryController {
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.getDiary(diaryID));
     }
 
-    @PostMapping("*")
+    @PostMapping("")
     public ResponseEntity saveDiary(@RequestBody Diary diary){
         diary.setCreatedDate(new Date());
         return ResponseEntity.status(HttpStatus.OK).body(diaryService.saveDiary(diary));
